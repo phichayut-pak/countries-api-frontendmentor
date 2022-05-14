@@ -1,17 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  countries: []
+  countries: [],
 }
 
 const countriesSlice = createSlice({
   name: 'countries',
   initialState: initialState,
   reducers: {
-    getSingleCountry(state, action) {
-      state.countries.find(country => country.name === action.countryName)
+    setCountries(state, action) {
+      state.countries = action.payload
+    },
+    filterCountries(state, action) {
+      // state.countries = action.payload.countries.filter(country => country.name.toLowerCase().includes(action.payload.value))
+      state.countries = action.payload.countries.filter(country => country.name.toLowerCase().includes(action.payload.value))
+      console.log(state.countries)
     }
-  }
+  },
 })
 
 export default countriesSlice
