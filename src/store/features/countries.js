@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   countries: [],
+  searchedBy: '',
+  filteredBy: ''
+
 }
 
 const countriesSlice = createSlice({
@@ -11,10 +14,11 @@ const countriesSlice = createSlice({
     setCountries(state, action) {
       state.countries = action.payload
     },
+    searchCountries(state, action) {
+      state.searchedBy = action.payload
+    },
     filterCountries(state, action) {
-      // state.countries = action.payload.countries.filter(country => country.name.toLowerCase().includes(action.payload.value))
-      state.countries = action.payload.countries.filter(country => country.name.toLowerCase().includes(action.payload.value))
-      console.log(state.countries)
+      state.filteredBy = action.payload
     }
   },
 })

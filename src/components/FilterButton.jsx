@@ -1,7 +1,11 @@
 import React from 'react'
 import { Popover } from '@headlessui/react'
+import { useDispatch } from 'react-redux'
+import { countriesActions } from '../store/features/countries'
 
 const FilterButton = () => {
+  const dispatch = useDispatch()
+
   return (
     <div className=''>
       <Popover className='relative bg-white dark:bg-darkElements p-4 rounded-md shadow-sm'>
@@ -11,13 +15,30 @@ const FilterButton = () => {
         </Popover.Button>
 
         <Popover.Panel className="absolute shadow-sm bg-white dark:bg-darkElements left-0 py-3 rounded-md mt-6">
-          <div>
-            <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white'>Africa</button>
-            <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white'>America</button>
-            <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white'>Asia</button>
-            <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white'>Europe</button>
-            <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white'>Oceania</button>
+          {({ close }) => (
+            <div>
+              <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white' onClick={() => {
+                  dispatch(countriesActions.filterCountries('Africa'))
+                  close()
+              }}>Africa</button>
+              <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white' onClick={() => {
+                  dispatch(countriesActions.filterCountries('Americas'))
+                  close()
+              }}>Americas</button>
+              <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white' onClick={() => {
+                  dispatch(countriesActions.filterCountries('Asia'))
+                  close()
+              }}>Asia</button>
+              <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white' onClick={() => {
+                  dispatch(countriesActions.filterCountries('Europe'))
+                  close()
+              }}>Europe</button>
+              <button className='pl-5 pr-32 py-1 font-nunito font-semibold text-black dark:text-white' onClick={() => {
+                  dispatch(countriesActions.filterCountries('Oceania'))
+                  close()
+              }}>Oceania</button>
           </div>
+          )}
         </Popover.Panel>
       </Popover>
     </div>

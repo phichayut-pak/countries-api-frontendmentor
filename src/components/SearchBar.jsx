@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { countriesActions } from '../store/features/countries'
 
 
 const SearchBar = () => {
   const [country, setCountry] = useState('')
   const dispatch = useDispatch()
-  const countries = useSelector(state => state.countries.countries)
+  // const countries = useSelector(state => state.countries.countries)
   
   const submitHandler = (event) => {
     event.preventDefault()
@@ -15,12 +15,9 @@ const SearchBar = () => {
 
   const inputChangeHandler = (event) => {
     setCountry(event.target.value)
-    const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(event.target.value))
+    // const filteredCountries = countries.filter(country => country.name.toLowerCase().includes(event.target.value))
     // console.log(filteredCountries)
-    dispatch(countriesActions.filterCountries({
-      countries: countries,
-      value: event.target.value
-    }))
+    dispatch(countriesActions.searchCountries(event.target.value))
 
 
   }
