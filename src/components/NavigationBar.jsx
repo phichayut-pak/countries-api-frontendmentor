@@ -37,7 +37,7 @@ const NavigationBar = () => {
   }
 
   return(
-    <div className="w-screen bg-white dark:bg-darkElements flex justify-between items-center px-4 md:px-36 h-20 shadow-md">
+    <div className="bg-white dark:bg-darkElements flex justify-between items-center px-4 md:px-36 h-20 shadow-md">
       <Link to="/countries" id="title" className="font-nunito font-extrabold text-xl dark:text-white">
         Where in the world?
       </Link>
