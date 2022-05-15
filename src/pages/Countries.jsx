@@ -33,7 +33,6 @@ const Countries = () => {
       axios
         .get("https://restcountries.com/v2/all")
         .then((data) => data.data)
-        .then((data) => data.sort(() => Math.random() - 0.5))
         .then((data) => dispatch(countriesActions.setCountries(data)))
         .then(() => setInitial(1))
         .catch((err) => console.log(`ERROR IN COUNTRIES.JSX {${err}}`));
@@ -68,7 +67,7 @@ const Countries = () => {
       {countries.length === 0 ? (
         loadingHandler
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center md:justify-items-stretch content-start mt-10 gap-x-28 gap-y-5 md:gap-y-10 mx-36">
+        <div className={`grid grid-cols-1 md:grid-cols-4 justify-items-center md:justify-items-stretch content-start mt-10 gap-x-28 gap-y-5 md:gap-y-10 mx-36`}>
           {countries &&
             countries.map((country) => {
               return (

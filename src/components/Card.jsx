@@ -7,7 +7,7 @@ const Card = ({ img, title, population, region, capital}) => {
   return(
     <div className="grid grid-rows-2 grid-flow-col rounded-md h-auto bg-white dark:bg-darkElements shadow-sm cursor-pointer" onClick={() => navigate(`/countries/${title}`)} >
       <div id="image" className="inline-flex justify-center">
-        <img className="rounded-t-md " src={img} alt="" />
+        <img className="rounded-t-md w-[100%] h-auto" src={img} alt="" />
       </div>
       <div id="info" className="flex flex-col justify-start items-start px-5 py-12">
         <div id="title" className="font-nunito font-extrabold text-xl dark:text-white">

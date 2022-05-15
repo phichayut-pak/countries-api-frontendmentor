@@ -13,12 +13,14 @@ module.exports = {
         lightBg: 'hsl(0, 0%, 98%)',
       },
       fontFamily: {
-        'nunito': ['Nunito Sans', 'sans-serif']
+        'nunito': ['Nunito Sans', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif']
       }
     },
 
     screens: {
-      'md': '920px'
+      'md': '1581px',
+      'mid': '1260px'
     }
   },
   plugins: [],

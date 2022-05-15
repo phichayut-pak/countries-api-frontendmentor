@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { Routes, Route, Navigate } from "react-router-dom"
 import Countries from './pages/Countries'
 import NavigationBar from './components/NavigationBar'
-
+import ErrorPage from './pages/ErrorPage'
 
 const CountriesDetail = React.lazy(() => import('./pages/CountriesDetail'))
 
@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/" element={<Navigate to="/countries" replace />} />
           <Route path="/countries" element={<Countries />} />
           <Route path="/countries/:countryName" element={<CountriesDetail />}  />
-          <Route path="*" />
+          <Route path="*" element={<ErrorPage />}/>
         </Routes>
       </Suspense>
     </div>
