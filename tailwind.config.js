@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -15,13 +17,17 @@ module.exports = {
       fontFamily: {
         'nunito': ['Nunito Sans', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif']
+      },
+      screens: {
+        'mid': '1260px',
+        'larger': '1581px'
       }
     },
 
-    screens: {
-      'md': '1581px',
-      'mid': '1260px'
-    }
   },
+  // screens: {
+  //   'md': '1581px',
+  //   'mid': '1260px'
+  // },
   plugins: [],
 }
